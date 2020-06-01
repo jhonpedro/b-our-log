@@ -1,0 +1,24 @@
+<div class="navbar navbar-expand-md navbar-dark bg-dark">
+    <a id="nav-text" href="/" class="navbar-brand font-anomalia">
+        b OUR log
+    </a>
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#hamb">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="hamb">
+        <ul class="navbar-nav ml-auto">
+            <ul class="nav-item">
+                <a href="/" class="nav-link">Home</a>
+            </ul>
+            <% categories.forEach(category => { %>
+                <ul class="nav-item">
+                    <a href="/category/<%= category.slug %>" class="nav-link"><%= category.title %> </a>
+                </ul>
+            <% }) %>
+            <ul class="nav-item ml-5">
+                <a href="/login" class="nav-link">Admin login</a>
+            </ul>
+        </ul>
+    </div>
+</div>
+

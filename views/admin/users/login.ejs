@@ -1,0 +1,42 @@
+<%- include ("../../partials/header.ejs") %> 
+
+<body>
+    <%- include ("../../partials/homenavbar.ejs") %>
+    <div class="container">
+        <div>
+            <h1 class="display-4 text-center my-3">Login admin</h1>
+            <hr>
+        </div>
+        <form method="POST" action="/authenticate">
+            <div class="row d-flex align-items-center mt-5 pt-5">
+                <div class="col">
+                    <div class="font-anomalia text-center d-flex flex-column">
+                        <span class="display-2">b OUR log</span>
+                        <div class="w-75 mx-auto">
+                            <hr>
+                        </div>
+                        <span class="slogan">slogan here</span>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row form-group">
+                        <label for="email" class="col-2 col-form-label">E-mail</label>
+                        <div class="col-10">
+                            <input type="email" id="email" name="email" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <label for="password" class="col-2 col-form-label">Senha</label>
+                        <div class="col-10">
+                            <input type="password" id="password" name="password" class="form-control">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-outline-dark d-block ml-auto">Entrar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+<%- include ("../../partials/footer.ejs") %> 

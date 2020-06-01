@@ -1,0 +1,29 @@
+body {
+    background-color: rgb(241, 241, 241);
+}
+/* Font */
+@font-face {
+    font-family: 'Anomalia';
+    src: url(../font/AnomaliasMolestar.woff);
+}
+
+.font-anomalia {
+    font-family: Anomalia;
+}
+a.font-anomalia{
+    font-size: 28px;
+}
+span.font-anomalia {
+    font-size: 60px;
+}
+
+/* Slogan */
+
+.slogan {
+    font-family: cursive;
+}
+
+/* Nav */
+.nav-link {
+    font-size: 14px;
+}

@@ -1,0 +1,35 @@
+<%- include ('partials/header.ejs') %> 
+<body>
+    <%- include ('partials/homenavbar.ejs') %> 
+    <div class="container">
+        <div class="jumbotron text-center pt-0 mt-4 border">
+            <h1 class="display-2 font-anomalia">b <span class="font-anomalia">OUR</span> log</h1>
+
+            <p class="lead">Este é um blog simples para testes do node.js como backend</p>
+
+            <div class="w-75 mx-auto">
+                <hr>
+            </div>
+
+            <p class="lead mt-5">O propósito em si desse site é a construção de uma aplicação rodando o node.js no backend, para
+                o aprendizado e o desenvolvimento de certos conhecimentos na área de desenvolvimento web
+            </p>
+        </div>
+        <div class="card-deck">
+        <% article.forEach(article => { %>
+            <div class="card rounded">
+                <div class="card-content">
+                    <div class="card-header bg-dark">
+                        <p class="card-title text-light"><%= article.title %> </p>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-outline-dark d-block mx-auto" onclick="window.location.href = '/<%= article.slug %>'">Leia mais!</button>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+        <%- include ('partials/pagination.ejs') %> 
+    </div>
+</body>
+<%- include ('partials/footer.ejs') %>

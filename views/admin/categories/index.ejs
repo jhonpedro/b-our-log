@@ -1,0 +1,49 @@
+<%- include ('../../partials/header.ejs') %> 
+<body>
+    <%- include ('../../partials/navbar.ejs') %>
+
+    <div class="container">
+        <div class="row border-bottom mb-3">
+            <div class="col-6">
+                <h1 class="display-4 pb-1">Categorias</h1>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-outline-primary d-block ml-auto my-4" onclick="window.location.href = '/admin/categories/new'">
+                    Fazer nova categoria
+                </button>
+            </div>
+        </div>
+
+        <table class="table table-borderless">
+            <thead class="thead-dark">
+                <th>Id</th>
+                <th>Título</th>
+                <th>Slug</th>
+                <th>Ações</th>
+            </thead>
+            <tbody>
+                <% categories.forEach(category => { %>
+                    <tr>
+                        <td><%= category.id %> </td>
+                        <td><%= category.title %> </td>
+                        <td><%= category.slug %> </td>
+                        <td>
+                            <button class="btn btn-warning" onclick="window.location.href = '/admin/categories/edit/<%= category.id %>' ">Editar</button>
+                            <form class="d-inline" method="POST" action="/categories/delete" onsubmit="confirmarDelete(event, this)">
+                                <input type="hidden" name="id" value="<%= category.id %>">
+                                <button class="btn btn-danger">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+    <%- include ('../../partials/modal.ejs', {
+        titleModal: 'Excluir categoria?',
+        textModal: 'Realmente deseja excluir essa categoria? A exclusão pode resultar em erros inesperados.'
+    }) %> 
+
+</body>
+<%- include ('../../partials/footer.ejs') %> 

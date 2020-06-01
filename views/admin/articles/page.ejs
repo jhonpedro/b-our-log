@@ -1,0 +1,22 @@
+<%- include ('../../partials/header.ejs') %> 
+<body>
+    <%- include ('../../partials/homenavbar.ejs') %> 
+    <div class="container mt-4">
+        <div class="card">
+        <% result.articles.rows.forEach(article => { %>
+            <div class="card rounded m-3">
+                <div class="card-content">
+                    <div class="card-header bg-dark">
+                        <p class="card-title text-light"><%= article.title %> </p>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-outline-dark d-block mx-auto" onclick="window.location.href = '/<%= article.slug %>'">Leia mais!</button>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+        <%- include ('../../partials/pagination.ejs') %> 
+    </div>
+</body>
+<%- include ('../../partials/footer.ejs') %>

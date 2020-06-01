@@ -1,0 +1,46 @@
+<%- include ("../../partials/header.ejs") %> 
+<body>
+    <%- include ("../../partials/navbar.ejs") %> 
+    <div class="container">
+        <div class="row border-bottom mb-3">
+            <div class="col-6">
+                <h1 class="display-4 pb-1">Artigos</h1>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-outline-dark d-block ml-auto my-4" onclick="window.location.href = '/admin/users/create'">
+                    Fazer novo usuário
+                </button>
+            </div>
+        </div>
+    
+        <table class="table">
+            <thead class="thead-dark">
+                <th>Id</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Ações</th>
+            </thead>
+            <tbody>
+                <% users.forEach(user => { %>
+                    <tr>
+                        <td><%= user.id %> </td>
+                        <td><%= user.name %> </td>
+                        <td><%= user.email %> </td>
+                        <td>
+                            <button class="btn btn-warning" onclick="window.location.href = '/admin/users/edit/<%= user.id %>' ">Editar</button>
+                            <form class="d-inline" method="POST" action="/users/delete" onsubmit="confirmarDelete(event, this)">
+                                <input type="hidden" name="id" value="<%= user.id %>">
+                                <button class="btn btn-danger">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+    <%- include ("../../partials/modal.ejs", {
+        titleModal: 'Excluir usuário?',
+        textModal: "Você realmente deseja excluir esse usuário?"
+    }) %>
+</body>
+<%- include ("../../partials/footer.ejs") %> 
