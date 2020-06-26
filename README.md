@@ -1,6 +1,6 @@
 # b-our-log
 
-Um simples blog para visualização de artigos, com um CRUD completo para categorias e artigos, este projeto foi desenvolvido com intuito de aprender mais sobre as mecânicas do node.js e suas bibliotecas para desenvolvimento web. Feito no curso 
+Um simples blog para visualização de artigos, com um CRUD completo para categorias e artigos, este projeto foi desenvolvido com intuito de aprender mais sobre as mecânicas do node.js e suas bibliotecas para desenvolvimento web. Feito no curso [Formação Node.js](https://www.udemy.com/course/formacao-nodejs/)
 
 Para utilizar esse modelo basta digitar o código abaixo em um diretório adequado
 
