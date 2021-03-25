@@ -14,7 +14,6 @@ mysql
 			})
 			.catch((error) => {
 				console.info('there was an error in creating the database: ' + error)
-				process.exit(1)
 			})
 			.finally(() => {
 				process.exit(0)
