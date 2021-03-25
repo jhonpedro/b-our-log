@@ -1,25 +1,36 @@
 const Sequelize = require('sequelize')
-const connection = require('../database/database.js')
-const Category = require('../categories/Category.js')
+const sequelize = require('../database/database')
 
-const Article = connection.define('articles', {
-	title: {
-		type: Sequelize.STRING,
-		allowNull: false,
-	},
-	slug: {
-		type: Sequelize.STRING,
-		allowNull: false,
-	},
-	body: {
-		type: Sequelize.TEXT,
-		allowNull: false,
-	},
-})
+class Article extends Sequelize.Model {}
 
-Article.sync({ force: true })
-
-Category.hasMany(Article)
-Article.belongsTo(Category)
+Article.init(
+	{
+		id: {
+			type: Sequelize.STRING,
+			allowNull: false,
+			primaryKey: true,
+		},
+		title: {
+			type: Sequelize.STRING,
+			allowNull: false,
+		},
+		slug: {
+			type: Sequelize.STRING,
+			allowNull: false,
+		},
+		body: {
+			type: Sequelize.TEXT,
+			allowNull: false,
+		},
+		categoryId: {
+			type: Sequelize.INTEGER,
+			allowNull: false,
+			references: { model: 'categories', key: 'id' },
+		},
+		createdAt: Sequelize.DATE,
+		updatedAt: Sequelize.DATE,
+	},
+	{ sequelize, tableName: 'articles' }
+)
 
 module.exports = Article

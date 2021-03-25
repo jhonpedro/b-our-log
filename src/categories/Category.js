@@ -1,17 +1,23 @@
 const Sequelize = require('sequelize')
-const connection = require('../database/database.js')
+const sequelize = require('../database/database')
 
-const Category = connection.define('categories', {
-	title: {
-		type: Sequelize.STRING,
-		allowNull: false,
-	},
-	slug: {
-		type: Sequelize.STRING,
-		allowNull: false,
-	},
-})
+class Category extends Sequelize.Model {}
 
-Category.sync({ force: true })
+Category.init(
+	{
+		title: {
+			type: Sequelize.STRING,
+			allowNull: false,
+			primaryKey: true,
+		},
+		slug: {
+			type: Sequelize.STRING,
+			allowNull: false,
+		},
+		createdAt: Sequelize.DATE,
+		updatedAt: Sequelize.DATE,
+	},
+	{ sequelize, tableName: 'categories' }
+)
 
 module.exports = Category
