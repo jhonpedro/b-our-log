@@ -1,7 +1,8 @@
-const express = require('express'),
-	app = express(),
-	connection = require('./database/database.js'),
-	session = require('express-session')
+const express = require('express')
+const app = express()
+const connection = require('./database/database.js')
+const session = require('express-session')
+const { resolve } = require('path')
 
 // Getting POST parameters and using JSON
 app.use(express.urlencoded({ extended: false }))
@@ -13,8 +14,10 @@ app.set('view engine', 'ejs')
 // Setting views file
 app.set('views', './src/views')
 
-// Config for static archives
-app.use(express.static('src/public'))
+// Config for static files
+app.use('/public', express.static(resolve('src', 'public')))
+app.use('/tinymce', express.static(resolve('node_modules', 'tinymce')))
+app.use('/bootstrap', express.static(resolve('node_modules', 'bootstrap')))
 
 // Config for session and cookies
 app.use(
